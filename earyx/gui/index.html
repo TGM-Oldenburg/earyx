@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>earyx - select experiment</title>
+		<meta charset="utf-8"></meta>
+	</head>
+	<body scroll="no">
+      <div id="content">
+         <form action="/" method="post">
+           Select experiment:<br>
+           <fieldset>
+             {% for experiment in experiments %}
+             <input type="radio" id="mc" name="experiment" value="{{ experiment }}">
+             <label for="mc">{{ experiment }}</label><br>
+             {% end %}
+           </fieldset>
+           <br>
+
+           <label for="check1">
+             <input type="checkbox" name="debug" value="debug" id="check1">
+             activate plotting?
+           </label> <br>
+           
+           <input type="submit" value="start experiment">
+         </form> 
+		
+      </div>
+	</body>
+</html>

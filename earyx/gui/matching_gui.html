@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Earyx</title>
+		<meta charset="utf-8"></meta>
+        <meta property="cid" content="{{ clientid }}"></meta>
+	</head>
+    <script language="javascript" type="text/javascript" src="{{ static_url("script.js") }}"></script>
+	<script>
+	document.addEventListener("keydown", keyDownTextField, false);
+	
+	function keyDownTextField(key) {
+	/* function catches key-down events and sends respective message
+	   
+	   Parameters:
+	   -----------
+	   key : key-down event
+
+	   Returns:
+	   --------
+	   no return arguments
+
+	 */
+		var keyCode = key.keyCode;
+		var u = 85
+		var d = 68
+		var g = 71
+		var n = 78
+		var q = 81
+				
+		if (keyCode == u) 
+		        send_msg('answer', 'u')
+		
+		else if (keyCode == d)
+			send_msg('answer', 'd')
+			
+		else if (keyCode == g)	
+			send_msg('debug', 'debug')
+	
+		else if (keyCode == n)
+			send_msg('next_run', 'next_run')
+
+		else if (keyCode == q){
+			send_msg('quit', 'quit')
+		};
+	}
+	
+	</script>
+	<style>
+
+	.button {
+		box-shadow: inherit;
+		font-size: 2.5em;
+		height: 100%;
+		width: 20%;
+		margin-right: 4%;
+		margin-left: 4%;
+		color: #000;
+		border-radius: 15px;
+		font-family: Calibri,sans-serif;
+		padding: 5px 10px;
+		position: relative;
+		background-color: #FFF;
+	}
+	
+	.buttonGroup {
+		position: relative;
+		margin-top: 6%;
+		height: 35%;
+		width: 60%;
+		height: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.otherBtnGrp {
+		position: relative;
+		margin-top: 5%;
+		height: 7%;
+		font-size: 0.5em;
+	}
+	
+	#next_run, #close {
+		height: 10%;
+		margin-top: 5%;
+		font-size: 0.5em;
+	}
+	
+	#label {
+		background-color: #FFF;
+		font-family: sans-serif;
+		position: relative;
+		height: 13%;
+	}
+	
+	#label p {
+		font-family:sans-serif;
+	}
+	
+	html, body {
+		height: 100%;
+	}
+
+	#dbgBtn {
+		color : red;
+	}
+		#btnGrpPlot {
+		height: 30%;
+		margin-top: 2%;
+	}
+
+	#plot {
+		padding-top: 6%;
+	}
+	</style>
+	
+	<body scroll="no">
+		<div id="label" align="center">
+			<div>
+				<p id="task"></br> </p>
+				<p id="params"> </br> </p>
+				<p id="feedback"></p>
+			</div>
+		</div>
+		<div class="otherBtnGrp" align="center">
+			<input class="button"
+				type="button"
+				value="next run"
+				onclick="send_msg('next_run', 'next_run')">
+			<input class="button"
+				id="sqBtn"
+				type="button"
+				value="start experiment"
+				onclick="start_quit()">
+			<input class="button"
+				id="dbgBtn"
+				type="button"
+				value="Activate debugging"
+				onclick="send_msg('debug', 'debug')">
+		</div>
+		<div id="btnGrpPlot">
+			<div class="buttonGroup" align="center">
+				<input class="button answer_button"
+					type="button"
+					id="but1"
+					value="up"
+					onclick="send_msg('answer', 'u')">
+				<input class="button answer_button" 
+					type="button"
+					id="but2"
+					value="down"
+					onclick="send_msg('answer', 'd')">
+			</div>
+			<div id="plot"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,10 @@
+* DONE to fix: quit button spielt sound bei cancel
+* DONE to fix: einheit hinter params in label in html
+* DONE to fix: debug button
+* TODO to fix: wenn am anfang abbrechen gedrückt wird...ieine message senden und experiment beenden
+* DONE to fix: nach ende eines runs pausieren, sonst beginnt der nächste run automatisch und beim bestätigen fürs weitermachen wird ein run übersprungen
+* TODO load funktion einbauen
+* TODO overall layout
+* TODO nice to have: tasten leuchten
+* DONE nice to have: tasten mit tastatur bedienen
+* TODO quit button funktioniert, aber lässt sich beliebig of anklicken (evtl. deaktivieren?)

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>earyx - select experiment</title>
+		<meta charset="utf-8"></meta>
+	</head>
+	<body scroll="no">
+      <div id="content">
+        <table border="1">
+          <tr>
+            <th>Experiment</th>
+            <th>Id</th>
+            <th>Start</th>
+          </tr>
+
+          {% for key, value in active.items() %}
+          <tr>
+            <td>{{ value['exp'].cls }}</td>
+            <td>{{key}}</td>
+            {% if not value['started'] %}
+            <td> <a href="/select/?cid={{key}}">Start</a></td>
+            {% else  %}
+            <td> already running</td>
+            {% end %}
+          </tr>
+        {% end %}
+
+          
+        </table>
+        
+        
+
+		
+      </div>
+	</body>
+</html>
